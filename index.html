@@ -13,10 +13,31 @@
         justify-content: center;
         align-items: center;
         height: 100vh;
-        background-image: url('https://maven-uploads.s3.amazonaws.com/120386748/projects/netflix%20image.jpg'); /* Imagem de fundo */
-        background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
-        background-position: center; /* Centraliza a imagem */
+        overflow: hidden; /* Para ocultar a parte da imagem que se estende além da janela de visualização */
+        position: relative; /* Para posicionar o contêiner de vídeo e o de login corretamente */
         color: #ffffff; /* Cor do texto branco */
+    }
+    .background-container {
+        position: absolute; /* Para que a animação funcione corretamente */
+        top: 0;
+        left: 0;
+        width: 200%; /* Largura maior para cobrir a tela */
+        height: 100%;
+        animation: backgroundScroll 30s linear infinite; /* Animar a imagem de fundo */
+        filter: brightness(50%); /* Escurece a imagem de fundo */
+    }
+    .background-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ajusta a imagem para cobrir todo o contêiner */
+    }
+    @keyframes backgroundScroll {
+        0% {
+            transform: translateX(0%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
     }
     .login-container {
         background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para melhor legibilidade */
@@ -24,10 +45,11 @@
         border-radius: 8px;
         box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra clara */
         text-align: center; /* Centraliza o conteúdo horizontalmente */
+        z-index: 1; /* Para que o contêiner de login esteja sobre a imagem de fundo */
     }
-    .dark-mode input[type="text"],
-    .dark-mode input[type="password"],
-    .dark-mode input[type="submit"] {
+    .login-container input[type="text"],
+    .login-container input[type="password"],
+    .login-container input[type="submit"] {
         border-color: #ffffff; /* Cor da borda branca */
         background-color: #424242; /* Cor de fundo do campo de entrada */
         color: #ffffff; /* Cor do texto branco */
@@ -51,12 +73,16 @@
         cursor: pointer;
     }
     .logo {
-        max-width: 250px; /* Largura máxima da logo */
-        margin-bottom: 50px;
+        max-width: 250px;
+        margin-bottom: 20px;
     }
 </style>
 </head>
 <body class="dark-mode">
+<div class="background-container">
+    <img src="https://maven-uploads.s3.amazonaws.com/120386748/projects/netflix%20image.jpg" alt="Imagem de fundo">
+</div>
+
 <div class="login-container">
     <img src="https://i.postimg.cc/Bb1Mvpmd/Podflix-removebg-preview.png" alt="Logo" class="logo">
     <h2>Tela de Login</h2>
