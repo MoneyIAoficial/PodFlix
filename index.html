@@ -50,25 +50,15 @@
         border: none;
         cursor: pointer;
     }
-    .video-container {
-        max-width: 100%; /* Garante que o vídeo não ultrapasse o tamanho do contêiner */
-        border-radius: 8px; /* Adiciona bordas arredondadas */
-        overflow: hidden; /* Evita que o vídeo ultrapasse os limites do contêiner */
-    }
-    video {
-        width: 100%;
-        height: auto;
+    .logo {
+        max-width: 250px; /* Largura máxima da logo */
+        margin-bottom: 50px;
     }
 </style>
 </head>
 <body class="dark-mode">
 <div class="login-container">
-    <div class="video-container">
-        <video autoplay muted loop>
-            <source src="https://files.fm/u/k8mngjrh2f#/view/xx5k3k4k9p" type="video/mp4">
-            Seu navegador não suporta vídeos HTML5.
-        </video>
-    </div>
+    <img src="https://i.postimg.cc/Bb1Mvpmd/Podflix-removebg-preview.png" alt="Logo" class="logo">
     <h2>Tela de Login</h2>
     <form id="loginForm">
         <label for="accessKey">Chave de Acesso:</label>
