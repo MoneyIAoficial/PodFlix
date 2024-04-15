@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Login</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-image: url('https://maven-uploads.s3.amazonaws.com/120386748/projects/netflix%20image.jpg'); /* Imagem de fundo */
+        background-size: cover; /* Ajusta a imagem para cobrir toda a tela */
+        background-position: center; /* Centraliza a imagem */
+        color: #ffffff; /* Cor do texto branco */
+    }
+    .login-container {
+        background-color: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente para melhor legibilidade */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra clara */
+        text-align: center; /* Centraliza o conteúdo horizontalmente */
+    }
+    .dark-mode input[type="text"],
+    .dark-mode input[type="password"],
+    .dark-mode input[type="submit"] {
+        border-color: #ffffff; /* Cor da borda branca */
+        background-color: #424242; /* Cor de fundo do campo de entrada */
+        color: #ffffff; /* Cor do texto branco */
+    }
+    input[type="text"],
+    input[type="password"],
+    input[type="submit"] {
+        width: 100%;
+        padding: 10px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        transition: border-color 0.3s ease;
+    }
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .video-container {
+        max-width: 100%; /* Garante que o vídeo não ultrapasse o tamanho do contêiner */
+        border-radius: 8px; /* Adiciona bordas arredondadas */
+        overflow: hidden; /* Evita que o vídeo ultrapasse os limites do contêiner */
+    }
+    video {
+        width: 100%;
+        height: auto;
+    }
+</style>
+</head>
+<body class="dark-mode">
+<div class="login-container">
+    <div class="video-container">
+        <video autoplay muted loop>
+            <source src="https://files.fm/u/k8mngjrh2f#/view/xx5k3k4k9p" type="video/mp4">
+            Seu navegador não suporta vídeos HTML5.
+        </video>
+    </div>
+    <h2>Tela de Login</h2>
+    <form id="loginForm">
+        <label for="accessKey">Chave de Acesso:</label>
+        <input type="text" id="accessKey" name="accessKey" required><br>
+
+        <input type="submit" value="Login">
+    </form>
+</div>
+
+<script>
+document.getElementById("loginForm").addEventListener("submit", function(event){
+    event.preventDefault(); // Prevent the form from submitting
+
+    // Defina a chave de acesso válida
+    var validAccessKey = "14725836";
+
+    // Obtém o valor da chave de acesso fornecido pelo usuário
+    var accessKey = document.getElementById("accessKey").value;
+
+    // Verifica se a chave de acesso fornecida é válida
+    if (accessKey === validAccessKey) {
+        // Redireciona para uma URL após o login bem-sucedido
+        window.location.href = "https://megatvonline.biz/";
+    } else {
+        alert("Chave de acesso inválida. Tente novamente.");
+    }
+});
+</script>
+</body>
+</html>
